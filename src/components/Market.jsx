@@ -13,8 +13,8 @@ export default function Market() {
 
   return (
     <div className="component">
-      <FruitsList fruits={stock.fruits} addToCart={addToCart} />
-      <FruitsList fruits={stock.meats} addToCart={addToCart} />
+      <StockItemsList items={stock.fruits} addToCart={addToCart} />
+      <StockItemsList items={stock.meats} addToCart={addToCart} />
       <Cart items={cart} />
     </div>
   );
@@ -33,7 +33,7 @@ function Cart({ items }) {
   );
 }
 
-function Fruit({ name, addToCart }) {
+function Item({ name, addToCart }) {
   return (
     <div>
       <span>{name}</span>
@@ -42,13 +42,13 @@ function Fruit({ name, addToCart }) {
   );
 }
 
-function FruitsList({ fruits, addToCart }) {
+function StockItemsList({ items, addToCart }) {
   return (
     <>
       {
-        fruits.map(
+        items.map(
           (fruitName) => (
-            <Fruit
+            <Item
               key={fruitName}
               name={fruitName}
               addToCart={addToCart}
