@@ -1,15 +1,15 @@
 import React, { useReducer } from 'react';
 
-const increment = 'INCREMENT';
-const decrement = 'DECREMENT';
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
 
 const initialCount = 0;
 
 function countReducer(count, action) {
   switch (action.type) {
-    case increment:
+    case INCREMENT:
       return count + 1;
-    case decrement:
+    case DECREMENT:
       return count - 1;
     default:
       return count;
@@ -18,8 +18,8 @@ function countReducer(count, action) {
 
 export default function Counter() {
   const [count, dispatch] = useReducer(countReducer, initialCount);
-  const increment = () => dispatch({ type: increment });
-  const decrement = () => dispatch({ type: decrement });
+  const increment = () => dispatch({ type: INCREMENT });
+  const decrement = () => dispatch({ type: DECREMENT });
   return (
     <div className='component'>
       The count is {count}
