@@ -6,11 +6,9 @@ const todoList = [
   { id: '3', name: "washing dishes", completed: false },
 ];
 
-export default function Todos(props) {
+export default function Todos() {
   const [todos, setTodos] = useState(todoList);
-  const markTodo = (id, isComplete) => event => {
-    // markTodo needs to return a function that takes an event,
-    // se we can attach it to a click handler in the JSX
+  const markTodo = (id, isComplete) => () => {
     setTodos(todos.map(todo => {
       if (todo.id !== id) return todo;
       return { id: todo.id, name: todo.name, complete: isComplete };
@@ -20,8 +18,8 @@ export default function Todos(props) {
     <div className='component'>
       {
         todos.map((todo) => (
-          <div key={todo.id}>
-            {todo.name} is {!todo.complete && 'NOT '}completed
+          <div key={todo.id} style={{ color: !todo.complete ? 'red' : 'green' }}>
+            {todo.name}
             <button onClick={markTodo(todo.id, true)}>Mark complete</button>
             <button onClick={markTodo(todo.id, false)}>Mark incomplete</button>
           </div>
