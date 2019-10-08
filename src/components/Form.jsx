@@ -25,7 +25,7 @@ export default function Form() {
         <input value={formValues.lname} onChange={onValueChange} name='lname' />
       </label><br />
 
-      <button>submit</button>
+      <input type='submit' />
     </form>
   );
 }
