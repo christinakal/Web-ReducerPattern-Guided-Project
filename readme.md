@@ -1,4 +1,6 @@
-# How to Run this App
+# The Reducer Pattern
+
+## How to Run this App
   * Clone repository.
   * Run `npm install`.
   * Run `npm run webpack` to bundle the app with a watcher.
