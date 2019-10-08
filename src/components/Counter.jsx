@@ -1,25 +1,9 @@
-import React, { useReducer } from 'react';
-
-const INCREMENT = 'INCREMENT';
-const DECREMENT = 'DECREMENT';
-
-const initialCount = 0;
-
-function countReducer(count, action) {
-  switch (action.type) {
-    case INCREMENT:
-      return count + 1;
-    case DECREMENT:
-      return count - 1;
-    default:
-      return count;
-  }
-}
+import React, { useState } from 'react';
 
 export default function Counter() {
-  const [count, dispatch] = useReducer(countReducer, initialCount);
-  const increment = () => dispatch({ type: INCREMENT });
-  const decrement = () => dispatch({ type: DECREMENT });
+  const [count, setCount] = useState(0);
+  const increment = () => setCount(count + 1);
+  const decrement = () => setCount(count - 1);
   return (
     <div className='component'>
       The count is {count}
