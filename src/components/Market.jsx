@@ -13,15 +13,14 @@ export default function Market() {
 
   return (
     <div className="component">
-      <Fruits fruits={stock.fruits} addToCart={addToCart} />
-      <Fruits fruits={stock.meats} addToCart={addToCart} />
+      <FruitsList fruits={stock.fruits} addToCart={addToCart} />
+      <FruitsList fruits={stock.meats} addToCart={addToCart} />
       <Cart items={cart} />
     </div>
   );
 }
 
-function Cart(props) {
-  const { items } = props;
+function Cart({ items }) {
   return (
     <>
       <h5>Cart:</h5>
@@ -34,8 +33,7 @@ function Cart(props) {
   );
 }
 
-function Fruit(props) {
-  const { name, addToCart } = props;
+function Fruit({ name, addToCart }) {
   return (
     <div>
       <span>{name}</span>
@@ -44,8 +42,7 @@ function Fruit(props) {
   );
 }
 
-function Fruits(props) {
-  const { fruits, addToCart } = props;
+function FruitsList({ fruits, addToCart }) {
   return (
     <>
       {
