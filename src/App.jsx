@@ -11,5 +11,5 @@ ReactDOM.render(<>
   <Counter />
   <Form />
   <Todos />
-  <Market />
+  {/* <Market /> */}
 </>, document.querySelector('#target'));
