@@ -11,14 +11,14 @@ export default function Todos() {
   const markTodo = (id, isComplete) => () => {
     setTodos(todos.map(todo => {
       if (todo.id !== id) return todo;
-      return { id: todo.id, name: todo.name, complete: isComplete };
+      return { id: todo.id, name: todo.name, completed: isComplete };
     }));
   };
   return (
     <div className='component'>
       {
         todos.map((todo) => (
-          <div key={todo.id} style={{ color: !todo.complete ? 'red' : 'green' }}>
+          <div key={todo.id} style={{ color: !todo.completed ? 'red' : 'green' }}>
             {todo.name}
             <button onClick={markTodo(todo.id, true)}>Mark complete</button>
             <button onClick={markTodo(todo.id, false)}>Mark incomplete</button>
