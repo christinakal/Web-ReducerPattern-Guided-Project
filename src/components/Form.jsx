@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 
 // step 1 design a nice initial component state
 const initialState = {
@@ -31,16 +31,10 @@ function reducer(state, action) {
 }
 
 export default function Form() {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const onValueChange = event => {
-    const { name, value } = event.target;
-    dispatch({
-      type: INPUT_CHANGE,
-      payload: {
-        name,
-        value,
-      },
-    });
+
   };
   const onFormSubmit = event => {
 
@@ -48,11 +42,11 @@ export default function Form() {
   return (
     <form className='component' onSubmit={onFormSubmit}>
       <label>first name
-        <input value={formValues.fname} onChange={onValueChange} name='fname' />
+        <input value={state.fname} onChange={onValueChange} name='fname' />
       </label><br />
 
       <label>last name
-        <input value={formValues.lname} onChange={onValueChange} name='lname' />
+        <input value={state.lname} onChange={onValueChange} name='lname' />
       </label><br />
 
       <input type='submit' />
