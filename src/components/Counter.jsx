@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 
 // STEP 1 - DECIDE WHAT STATE THE COMPONENT NEEDS (OBJECT)
 // this thing will serve as our default initial state
@@ -38,14 +38,20 @@ function reducer(state, action) { // { count: 7, etc } STATE { type: INCREMENT }
 }
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
-  const increment = () => setCount(count => count + 1);
-  const decrement = () => setCount(count => count - 1);
-  const reset = () => setCount(0);
+  const [state, dispatch] = useReducer(reducer, initialState); // 1 -> reducer, 2 -> initial state
+  const increment = () => {
+    dispatch({ type: INCREMENT });
+  };
+  const decrement = () => {
+    dispatch({ type: DECREMENT });
+  };
+  const reset = () => {
+    dispatch({ type: RESET });
+  };
 
   return (
     <div className='component'>
-      The count is {count}
+      The count is {state.count}
       <button onClick={increment}>inc</button>
       <button onClick={decrement}>dev</button>
       <button onClick={reset}>reset</button>
