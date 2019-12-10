@@ -39,22 +39,24 @@ function reducer(state, action) { // { count: 7, etc } STATE { type: INCREMENT }
 
 export default function Counter() {
   const [state, dispatch] = useReducer(reducer, initialState); // 1 -> reducer, 2 -> initial state
-  const increment = () => {
+  const onIncrement = (event) => {
     dispatch({ type: INCREMENT });
   };
-  const decrement = () => {
+  const onDecrement = (event) => {
     dispatch({ type: DECREMENT });
   };
-  const reset = () => {
+  const onReset = (event) => {
     dispatch({ type: RESET });
   };
 
   return (
     <div className='component'>
       The count is {state.count}
-      <button onClick={increment}>inc</button>
-      <button onClick={decrement}>dev</button>
-      <button onClick={reset}>reset</button>
+      <button onClick={onIncrement}>inc</button>
+      <button onClick={onDecrement}>dev</button>
+      <button onClick={onReset}>reset</button>
+
+      {/* <FunkyComponent theCount={state.count} increment={onIncrement} /> */}
     </div>
   );
 }
