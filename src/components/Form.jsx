@@ -31,18 +31,20 @@ function reducer(state, action) {
 }
 
 export default function Form() {
-  const [state, shout] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const onValueChange = e => {
     const { name, value } = e.target;
-    shout({
+    dispatch({
       type: INPUT_CHANGE,
       payload: { name, value },
     });
   };
   const onFormSubmit = event => {
-    
+    event.preventDefault();
+    dispatch({ type: SUBMIT });
   };
+
   return (
     <form className='component' onSubmit={onFormSubmit}>
       <label>first name
