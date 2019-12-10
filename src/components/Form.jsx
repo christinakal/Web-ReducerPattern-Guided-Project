@@ -5,15 +5,15 @@ const initialState = {
   fname: '',
   lname: '',
   // isModalOpen: false,
-  // validationErrors: [],
+  // validationErrors: [], // ETC
 };
 
 // step 2
 const SUBMIT = 'SUBMIT';
 const INPUT_CHANGE = 'INPUT_CHANGE';
-const RESET = 'RESET';
-// const CLOSE_MODAL = 'CLOSE_MODAL'; // ETC
-// const ERROR = 'ERROR';
+// const RESET = 'RESET';
+// const CLOSE_MODAL = 'CLOSE_MODAL';
+// const ERROR = 'ERROR'; // ETC
 
 // step 3
 function reducer(state, action) {
