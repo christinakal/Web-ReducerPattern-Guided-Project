@@ -20,24 +20,30 @@ function reducer(state, action) {
   switch (action.type) {
     case SUBMIT:
       return initialState;
-    case INPUT_CHANGE: // { fname: 'a', lname: '' }, { type: INPUT_CHANGE, payload: { whichInput: 'fname', value: 'ab' } }
+    case INPUT_CHANGE:
+      return {
+        ...state,
+        [action.payload.name]: action.payload.value,
+      };
+    default:
+      return state;
   }
 }
 
 export default function Form() {
-  const [formValues, setFormValues] = useState({
-    fname: '',
-    lname: '',
-  });
+
   const onValueChange = event => {
-    setFormValues({
-      ...formValues,
-      [event.target.name]: event.target.value,
+    const { name, value } = event.target;
+    dispatch({
+      type: INPUT_CHANGE,
+      payload: {
+        name,
+        value,
+      },
     });
   };
   const onFormSubmit = event => {
-    event.preventDefault();
-    alert(`submitting ${formValues.lname}, ${formValues.fname}`);
+
   };
   return (
     <form className='component' onSubmit={onFormSubmit}>
