@@ -40,6 +40,7 @@ export default function Form() {
       payload: { name, value },
     });
   };
+
   const onFormSubmit = event => {
     event.preventDefault();
     dispatch({ type: SUBMIT });
